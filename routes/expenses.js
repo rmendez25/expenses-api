@@ -39,10 +39,41 @@ router.post("/", async (req, res) => {
       role: user.role,
     },
     receip: req.body.receip,
-    notes: req.body.notes
+    notes: req.body.notes,
   });
 
   await expense.save();
+  res.send(expense);
+});
+
+router.put("/:id", async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  const category = await Category.findById(req.body.categoryId);
+  if (!category) return res.status(404).send("Invalid category");
+
+  const user = await User.findById(req.body.userId);
+  if (!user) return res.status(404).send("Invalid user");
+
+  const expense = await Expense.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    amount: req.body.amount,
+    category: {
+      _id: category._id,
+      name: category.name,
+    },
+    purchaseDate: req.body.purchaseDate,
+    user: {
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      role: user.role,
+    },
+    receip: req.body.receip,
+    notes: req.body.notes,
+  });
+
   res.send(expense);
 });
 
