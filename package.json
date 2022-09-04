@@ -1,0 +1,18 @@
+{
+  "name": "expenses-tracker",
+  "version": "1.0.0",
+  "description": "a small proyect to track expenses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robert Mendez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "joi-objectid": "^4.0.2",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.19"
+  }
+}
