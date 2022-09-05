@@ -10,7 +10,6 @@ const incomeSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
-    require: true,
   },
   incomeSource: {
     type: String,

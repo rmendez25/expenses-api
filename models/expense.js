@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const { categorySchema } = require("./category");
 const { userSchema } = require("./user");
 
-const expenseSchema = mongoose.Schema({
+const expenseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -27,7 +27,7 @@ const expenseSchema = mongoose.Schema({
     type: userSchema,
     require: true,
   },
-  receip: {
+  receipt: {
     type: String,
   },
   notes:{
@@ -46,7 +46,7 @@ function validateExpense(expense) {
     categoryId: Joi.objectId().required(),
     purchaseDate: Joi.date().required(),
     userId: Joi.objectId().required(),
-    receip: Joi.string(),
+    receipt: Joi.string(),
     notes: Joi.string().min(0).max(255)
   });
 
