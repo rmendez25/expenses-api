@@ -22,7 +22,7 @@ const incomeSchema = new mongoose.Schema({
     min: 0,
     require: true,
   },
-});
+},{versionKey: false});
 
 const Income = mongoose.model("Income", incomeSchema);
 

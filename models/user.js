@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         enum: ["dad", "mom", "baby", "other"],
         require: true,
     },
-});
+}, {versionKey: false});
 
 const User = mongoose.model("User", userSchema);
 

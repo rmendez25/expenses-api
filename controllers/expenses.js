@@ -92,7 +92,7 @@ const updateExpense = async (req, res) => {
         .status(404)
         .json(`Expense with the id ${req.params.id} was not found!`);
 
-    res.status(200).json({ task: expense });
+    res.status(200).json(expense);
   } catch (error) {
     res.status(500).json({ msg: error });
   }
