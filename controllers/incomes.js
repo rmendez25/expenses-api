@@ -41,7 +41,7 @@ const createIncome = async (req, res) => {
     });
     res.status(201).json({ income });
   } catch (error) {
-    res.status(500).json({ message: error });
+    res.status(500).json({ error });
   }
 };
 
